@@ -2,12 +2,12 @@
 name = "lab-games-sampler"
 version = "0.1.0"
 description = ""
-authors = ["Your Name <you@example.com>"]
+authors = ["emma <eqbrown@isf.edu.hk>"]
 readme = "README.md"
 packages = [{include = "lab_games_sampler"}]
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.9"
 arcade = "^2.6.17"
 
 
