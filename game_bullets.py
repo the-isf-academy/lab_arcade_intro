@@ -9,8 +9,8 @@ import arcade
 import os
 
 SPRITE_SCALING_PLAYER = 0.5
-SPRITE_SCALING_COIN = 0.2
-SPRITE_SCALING_LASER = 0.8
+SPRITE_SCALING_COIN = 0.005
+SPRITE_SCALING_LASER = 0.03
 COIN_COUNT = 50
 
 SCREEN_WIDTH = 800
@@ -38,8 +38,7 @@ class MyGame(arcade.Window):
         # sets up the player 
         self.player_list = arcade.SpriteList()
 
-        self.player_sprite = arcade.Sprite(":resources:images/animated_characters/female_person/"
-                                           "femalePerson_idle.png", SPRITE_SCALING_PLAYER)
+        self.player_sprite = arcade.Sprite("assets/player_sprite.png", SPRITE_SCALING_PLAYER)
         self.player_sprite.center_x = 50
         self.player_sprite.center_y = 70
         self.player_list.append(self.player_sprite)
@@ -50,7 +49,7 @@ class MyGame(arcade.Window):
         for i in range(COIN_COUNT):
 
             # Create the coin instance
-            coin = arcade.Sprite(":resources:images/items/coinGold.png", SPRITE_SCALING_COIN)
+            coin = arcade.Sprite("assets/coin_sprite.png", SPRITE_SCALING_COIN)
 
             # Position the coin
             coin.center_x = random.randrange(SCREEN_WIDTH)
@@ -61,6 +60,8 @@ class MyGame(arcade.Window):
 
         # sets up bullets
         self.bullet_list = arcade.SpriteList()
+        self.gun_sound = arcade.load_sound("assets/laser-gun.wav")
+
 
 
     def on_draw(self):
@@ -92,7 +93,8 @@ class MyGame(arcade.Window):
 
         elif key == arcade.key.UP:
             # Create a bullet
-            bullet = arcade.Sprite(":resources:images/space_shooter/laserBlue01.png", SPRITE_SCALING_LASER)
+            # bullet = arcade.Sprite(":resources:images/space_shooter/laserBlue01.png", SPRITE_SCALING_LASER)
+            bullet = arcade.Sprite("assets/laser_sprite.png", SPRITE_SCALING_LASER)
 
             # rotates image
             bullet.angle = 90
@@ -106,6 +108,12 @@ class MyGame(arcade.Window):
 
             # Add the bullet to the appropriate sprite list
             self.bullet_list.append(bullet)
+
+            arcade.play_sound(self.gun_sound)
+
+        elif key == arcade.key.ESCAPE:
+            arcade.exit()
+
 
     def on_key_release(self, key, modifiers):
         """

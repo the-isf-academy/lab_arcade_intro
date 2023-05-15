@@ -48,7 +48,7 @@ class MyGame(arcade.Window):
         self.player_list = arcade.SpriteList()
 
         self.player_sprite = arcade.Sprite(
-            ":resources:images/animated_characters/female_person/femalePerson_idle.png",
+            "assets/player_sprite.png",
             PLAYER_SCALING,
         )
 
@@ -166,7 +166,7 @@ class MyGame(arcade.Window):
         # This spot would center on the user
         screen_center_x = self.player_sprite.center_x - (self.camera.viewport_width / 2)
         screen_center_y = self.player_sprite.center_y - (
-            self.camera.viewport_height / 2
+            self.camera.viewport_height / 5
         )
         if screen_center_x < 0:
             screen_center_x = 0
