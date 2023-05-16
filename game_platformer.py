@@ -25,7 +25,7 @@ VIEWPORT_LEFT_MARGIN = 270
 
 # Physics
 MOVEMENT_SPEED = 5
-JUMP_SPEED = 5
+JUMP_SPEED = 25
 GRAVITY = 1.1
 
 
@@ -111,8 +111,8 @@ class MyGame(arcade.Window):
         if self.game_over:
             arcade.draw_text(
                 "Game Over",
-                200,
-                200,
+                self.player_sprite.center_x + 50,
+                self.player_sprite.center_y + 100,
                 arcade.color.BLACK,
                 30,
             )
