@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "lab-games-sampler"
+name = "lab-arcade-intro"
 version = "0.1.0"
 description = ""
 authors = ["emma <eqbrown@isf.edu.hk>"]
