@@ -10,9 +10,8 @@ import os
 
 class MyGame(arcade.Window):
     def __init__(self):
-        """ 
-        Initializer set up the game and initialize the variables. 
-        """
+        # Initializer set up the game and initialize the variables. 
+        
 
         # Call the parent class initializer
         self.screen_width = 800
@@ -69,9 +68,8 @@ class MyGame(arcade.Window):
         self.score = 0
 
     def on_draw(self):
-        """
-        Render the screen.
-        """
+        # Render the screen.
+        
 
         # This command has to happen before we start drawing
         self.clear()
@@ -91,9 +89,8 @@ class MyGame(arcade.Window):
             14)
     
     def on_key_press(self, key, modifiers):
-        """
-        Called whenever a key is pressed.
-        """
+        # Called whenever a key is pressed.
+        
 
         if key == arcade.key.A:
             self.player_sprite.change_x = -self.movement_speed
@@ -128,16 +125,15 @@ class MyGame(arcade.Window):
             arcade.exit()
 
     def on_key_release(self, key, modifiers):
-        """
-        Called when the user presses a mouse button.
-        """
+        # Called when the user presses a mouse button.
+        
 
         if key == arcade.key.A or key == arcade.key.D:
             self.player_sprite.change_x = 0
         
 
     def on_update(self, delta_time):
-        """ Movement and game logic """
+        # Movement and game logic 
 
         # updates player
         self.player_list.update()
@@ -163,6 +159,7 @@ class MyGame(arcade.Window):
                 laser.remove_from_sprite_lists()
 
 
-if __name__ == "__main__":
-    window = MyGame()   
-    arcade.run()
+# Create a Game object
+window = MyGame()
+# Run the game
+arcade.run()

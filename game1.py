@@ -8,12 +8,10 @@
 import arcade
 
 class MyGame(arcade.Window):
-    """Main application class."""
+    # Main application class
 
     def __init__(self):
-        """
-        Initializer
-        """
+        #Initializer
 
         self.screen_width = 400
         self.screen_height = 200
@@ -32,7 +30,7 @@ class MyGame(arcade.Window):
         self.game_over = False
         
      
-        """Set up the game and initialize the variables."""
+        #Set up the game and initialize the variables.
 
         # Set up the player
         self.player_list = arcade.SpriteList()
@@ -91,9 +89,8 @@ class MyGame(arcade.Window):
 
 
     def on_draw(self):
-        """
-        Render the screen.
-        """
+        # Render the screen.
+        
 
         # These commands must happen before we start drawing
         self.camera.use()
@@ -117,9 +114,8 @@ class MyGame(arcade.Window):
             )
 
     def on_key_press(self, key, modifiers):
-        """
-        Called whenever a key is pressed.
-        """
+        # Called whenever a key is pressed.
+        
 
         if key == arcade.key.UP:
             if self.physics_engine.can_jump():
@@ -135,15 +131,14 @@ class MyGame(arcade.Window):
             arcade.exit()
 
     def on_key_release(self, key, modifiers):
-        """
-        Called when the user presses a mouse button.
-        """
+        # Called when the user presses a mouse button.
+        
         
         if key == arcade.key.LEFT or key == arcade.key.RIGHT:
             self.player_sprite.change_x = 0
 
     def on_update(self, delta_time):
-        """Movement and game logic"""
+        #Movement and game logic
 
         if self.player_sprite.right >= self.end_of_map:
             self.game_over = True
@@ -163,7 +158,7 @@ class MyGame(arcade.Window):
         self.pan_camera_to_user(panning_fraction=0.12)
 
     def pan_camera_to_user(self, panning_fraction: float = 1.0):
-        """ Manage Scrolling """
+        # Manage Scrolling 
 
         # This spot would center on the user
         screen_center_x = self.player_sprite.center_x - (self.camera.viewport_width/2)
@@ -179,6 +174,7 @@ class MyGame(arcade.Window):
         self.camera.move_to(user_centered, panning_fraction)
 
 
-if __name__ == "__main__":
-    window = MyGame()
-    arcade.run()
+# Create a Game object
+window = MyGame()
+# Run the game
+arcade.run()
